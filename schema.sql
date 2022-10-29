@@ -9,3 +9,15 @@ neutered BOOLEAN,
 weight_kg DECIMAL,
 species VARCHAR(50)
 );
+
+CREATE TABLE owners (
+  id INT,
+  full_name VARCHAR(50),
+  age INT,
+  PRIMARY KEY (id)
+)
+
+CREATE TABLE species (
+ id INT PRIMARY KEY,
+ name VARCHAR(50)
+);
