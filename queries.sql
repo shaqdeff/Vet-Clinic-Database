@@ -113,18 +113,3 @@ SELECT AVG(escape_attempts), species
 FROM animals
 WHERE date_of_birth BETWEEN '01-01-1990' AND '12-31-2000'
 GROUP BY species;
-
--- Make sure that id is set as autoincremented PRIMARY KEY
-ALTER TABLE animals DROP COLUMN id;
-ALTER TABLE animals ADD COLUMN ID SERIAL PRIMARY KEY;
-
--- Remove column species
-ALTER TABLE animals DROP COLUMN species;
-
--- Add column species_id which is a foreign key referencing species table
-ALTER TABLE animals ADD species_id INTEGER,
-ADD FOREIGN KEY (species_id) REFERENCES species (id);
-
--- Add column owner_id which is a foreign key referencing the owners table
-ALTER TABLE animals ADD owner_id INTEGER,
-ADD FOREIGN KEY (owner_id) REFERENCES owners (id);
